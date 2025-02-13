@@ -27,6 +27,7 @@ public class EmployeeController {
 	
 	private EmployeeService employeeService;
 	
+	// Create Employee API
 	@PostMapping("/add")
 	public ResponseEntity<EmployeeDto> create(@RequestBody EmployeeDto employeeDto){
 		
@@ -36,12 +37,14 @@ public class EmployeeController {
 		
 	}
 	
+	// Get Employee By ID API
 	@GetMapping("/get/{id}")
 	public ResponseEntity<EmployeeDto> getById(@PathVariable ("id") Long empId){
 		EmployeeDto employeeDto = employeeService.getEmployeeById(empId);
 		return ResponseEntity.ok(employeeDto);
 	}
 	
+	// Get All Employee API
 	@GetMapping("/getAll")
 	public ResponseEntity<List <EmployeeDto>> getAll(){
 		
@@ -51,6 +54,7 @@ public class EmployeeController {
 		
 	}
 	
+	// Update Employee API
 	@PutMapping("/update/{id}")
 	public ResponseEntity<EmployeeDto> update(@PathVariable ("id") Long empId , 
 											  @RequestBody EmployeeDto employeeDto){
@@ -60,6 +64,7 @@ public class EmployeeController {
 		return ResponseEntity.ok(updatedEmployee);
 	}
 	
+	// Delete Employee API
 	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<String> delete(@PathVariable ("id") Long empId){
 		

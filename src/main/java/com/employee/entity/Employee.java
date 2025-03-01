@@ -39,5 +39,4 @@ public class Employee {
 	@Column(name="updated_date")
 	private Date updatedDate;
 	
-	
 }
